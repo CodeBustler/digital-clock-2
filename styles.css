@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: system-ui, sans-serif;
+  color: white;
+  background-color: rgb(19, 17, 17);
+  display: grid;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  max-width: fit-content;
+  margin: auto;
+  padding: 20px 30px;
+  background-color: rgba(49, 48, 48, 0.37);
+  border-radius: 10px;
+  position: relative;
+}
+
+.container::before,
+.container::after {
+  content: '';
+  width: 200px;
+  height: 200px;
+  display: block;
+  position: absolute;
+  filter: blur(16px);
+  z-index: -3;
+}
+
+.container::after {
+  left: -50px;
+  top: -40px;
+  background-color: rgb(219, 130, 28);
+}
+
+.container::before {
+  right: -50px;
+  top: 20px;
+  border-radius: 50%;
+  background-color: blueviolet;
+}
+
+.clock {
+  font-size: 5rem;
+  font-weight: bold;
+  padding-bottom: 30px;
+}
+
+#hr,
+#min,
+#sec {
+  position: relative;
+  padding-bottom: 10px;
+}
+
+#hr::after,
+#min::after,
+#sec::after {
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  bottom: -20px;
+  left: 20px;
+  color: rgb(230, 234, 236);
+}
+
+#hr::after {
+  content: 'Hours';
+}
+#min::after {
+  content: 'Minutes';
+}
+#sec::after {
+  content: 'Seconds';
+}
+
+footer {
+  text-align: center;
+  margin: auto;
+  color: gray;
+}
+
+@media only screen and (max-width: 600px) {
+  .clock {
+    font-size: 2.5rem;
+  }
+
+  #hr::after,
+  #min::after,
+  #sec::after {
+    left: 5px;
+    font-size: 12px;
+  }
+
+  .container::before,
+  .container::after {
+    width: 100px;
+    height: 100px;
+  }
+}
